@@ -84,6 +84,16 @@ config BT_HCIUART_LL
 
 	  Say Y here to compile support for HCILL protocol.
 
+config BT_HCIUART_IBS
+	bool "HCI_IBS protocol support"
+	depends on BT_HCIUART
+	help
+	  HCI_IBS (HCI In-Band Sleep) is a serial protocol for communication
+	  between Bluetooth device and host. This protocol is required for
+	  UART clock control for some Qualcomm Bluetooth devices.
+
+	  Say Y here to compile support for HCI_IBS protocol.
+
 config BT_HCIUART_3WIRE
 	bool "Three-wire UART (H5) protocol support"
 	depends on BT_HCIUART
@@ -231,6 +241,14 @@ config BT_MRVL_SDIO
 
 	  Say Y here to compile support for Marvell BT-over-SDIO driver
 	  into the kernel or say M to compile it as module.
+
+config MSM_BT_POWER
+	tristate "MSM Bluetooth Power Control"
+	depends on m
+	depends on ARCH_MSM && RFKILL
+	help
+	  Provides a parameter to switch on/off power from PMIC
+	  to Bluetooth device.
 
 config BT_ATH3K
 	tristate "Atheros firmware download driver"

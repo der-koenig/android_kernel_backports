@@ -598,6 +598,9 @@ static int __init hci_uart_init(void)
 #ifdef CPTCFG_BT_HCIUART_ATH3K
 	ath_init();
 #endif
+#ifdef CPTCFG_BT_HCIUART_IBS
+	ibs_init();
+#endif
 #ifdef CPTCFG_BT_HCIUART_3WIRE
 	h5_init();
 #endif
@@ -620,6 +623,9 @@ static void __exit hci_uart_exit(void)
 #endif
 #ifdef CPTCFG_BT_HCIUART_ATH3K
 	ath_deinit();
+#endif
+#ifdef CPTCFG_BT_HCIUART_IBS
+	ibs_deinit();
 #endif
 #ifdef CPTCFG_BT_HCIUART_3WIRE
 	h5_deinit();
